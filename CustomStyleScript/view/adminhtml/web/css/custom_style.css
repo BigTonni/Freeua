@@ -1,0 +1,5 @@
+/*Hide Pay4later Package*/
+.catalog-product-new .admin__field.admin__field-custom,
+.catalog-product-edit .admin__field.admin__field-custom{
+    display:none;
+}

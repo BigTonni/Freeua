@@ -1,0 +1,23 @@
+{
+    "name": "freeua/unchecked-billing-address",
+    "description": "To disable option and make it unchecked by default",
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "shandm85@gmail.com",
+            "name": "Anton Shulga"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Freeua\\UncheckedBillingAddress\\": ""
+        }
+    }
+}

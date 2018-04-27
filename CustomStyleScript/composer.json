@@ -1,0 +1,23 @@
+{
+    "name": "freeua/customstylescript",
+    "description": "Custom Custom Style-Script",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "shandm85@gmail.com",
+            "name": "Anton Shulga"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Freeua\\CustomStyleScript\\": ""
+        }
+    }
+}
