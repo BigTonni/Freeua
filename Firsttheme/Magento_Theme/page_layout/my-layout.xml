@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+   <update handle="empty"/>
+   <referenceContainer name="page.wrapper">
+       <container name="header.container" as="header_container" label="Page Header Container" htmlTag="header" htmlClass="page-header" before="main.content"/>
+       <container name="page.top" as="page_top" label="After Page Header" after="header.container"/>
+
+	<referenceBlock name="block.example">
+	   <arguments>
+	       <!-- The argument you want to change -->
+	       <argument name="label" xsi:type="string">New Block Label</argument>
+	       <!-- New argument -->
+	       <argument name="custom_label" xsi:type="string">Custom Block Label</argument>
+	   </arguments>
+	</referenceBlock>
+       <container name="footer-container" as="footer" before="before.body.end" label="Page Footer Container" htmlTag="footer" htmlClass="page-footer"/>
+   </referenceContainer>
+</layout>

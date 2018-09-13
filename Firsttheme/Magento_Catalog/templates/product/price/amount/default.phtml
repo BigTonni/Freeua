@@ -1,0 +1,62 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+<?php
+if($this->getRequest()->getFullActionName() == 'catalog_product_view'){ ?>
+    <div class="productDescription__price Test2<?php /* @escapeNotVerified */ echo $block->getAdjustmentCssClasses() ?>"
+        <?php echo $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>
+         <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?>
+         data-price-amount="<?php /* @escapeNotVerified */ echo $block->getDisplayValue(); ?>"
+         data-price-type="<?php /* @escapeNotVerified */ echo $block->getPriceType(); ?>"
+         >
+        <?php
+        $prod_price = $block->getDisplayValue();
+        $price_int = $price_fract = '';
+        if( strpos($prod_price, '.') !== false ){
+            $arr_price = explode(".", $prod_price);
+            $price_int = $arr_price[0];
+            $price_fract = $arr_price[1];
+        }else{
+            $price_int = $prod_price;
+        }
+        ?>
+        <h3>TeST</h3>
+            <sup class="productDescription__indexTop">&pound;</sup>
+            <span class="productDescription__sum"><?php echo $price_int; ?></span>
+            <sup class="productDescription__indexTop">.<?php echo $price_fract; ?></sup>
+            <?php if ($block->getSchema()): ?>
+                <meta itemprop="priceCurrency" content="<?php /* @escapeNotVerified */ echo $block->getDisplayCurrencyCode()?>" />
+            <?php endif; ?>
+    </div>
+
+<?php }else{ ?>
+
+    <span class="price-container <?php /* @escapeNotVerified */ echo $block->getAdjustmentCssClasses() ?>"
+            <?php echo $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+        <?php if ($block->getDisplayLabel()): ?>
+            <span class="price-label"><?php /* @escapeNotVerified */ echo $block->getDisplayLabel(); ?></span>
+        <?php endif; ?>
+        <span <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?>
+            <?php echo($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+            data-price-amount="<?php /* @escapeNotVerified */ echo $block->getDisplayValue(); ?>"
+            data-price-type="<?php /* @escapeNotVerified */ echo $block->getPriceType(); ?>"
+            class="price-wrapper <?php /* @escapeNotVerified */ echo $block->getPriceWrapperCss(); ?>"
+            <?php echo $block->getSchema() ? ' itemprop="price"' : '' ?>>
+            <?php /* @escapeNotVerified */ echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
+        </span>
+        <?php if ($block->hasAdjustmentsHtml()): ?>
+            <?php echo $block->getAdjustmentsHtml() ?>
+        <?php endif; ?>
+        <?php if ($block->getSchema()): ?>
+            <meta itemprop="priceCurrency" content="<?php /* @escapeNotVerified */ echo $block->getDisplayCurrencyCode()?>" />
+        <?php endif; ?>
+    </span>
+<?php } ?>
