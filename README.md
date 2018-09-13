@@ -1,1 +1,1 @@
-# Magento #2 extensions
+# Magento #2 extensions + theme
